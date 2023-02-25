@@ -56,6 +56,9 @@ app.get("/api/todos/completed",function(req,res){
 		}
 	});
 });
+app.get("/", function(req, res){
+	res.sendFile(process.cwd()+"/frontend-react/index.html");
+});
 
 app.get("/api/todos/deleted",function(req,res){
 	todoLib.getAllDeletedTodos(function(err, todos){
@@ -93,7 +96,7 @@ app.delete(("/api/todos/:todoid"),function(req,res){
 	});
 });
 app.get("/*",(request,response)=>{
-    response.sendFile("/frontend/index.html");
+    response.sendFile("/frontend/frontend-react/index.html");
 });
 
 mongoose.set('strictQuery', true);
